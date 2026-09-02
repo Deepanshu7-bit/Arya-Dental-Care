@@ -55,7 +55,7 @@ export function Contact() {
                 </div>
                 <div className="form-field">
                   <label className="form-label" htmlFor="phone">Phone</label>
-                  <input id="phone" className="form-input" type="tel" placeholder="(510) 555-0192" />
+                  <input id="phone" className="form-input" type="tel" placeholder="+91 98765 43210" />
                 </div>
               </div>
 
@@ -145,44 +145,41 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Stylized Interactive Map Card */}
-            <a
-              href="https://maps.google.com/?cid=2124317734797233900"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-map-card group block relative"
-              title="Open Arya Dental Care on Google Maps"
-            >
-              <div className="contact-map">
-                <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-                    </pattern>
-                  </defs>
-                  <rect width="400" height="225" fill="url(#grid)" />
-                  <path d="M 0 100 Q 100 80 200 110 T 400 130" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-                  <path d="M 0 150 L 400 140" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-                  <path d="M 150 0 L 180 225" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-                  <path d="M 270 0 L 250 225" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-                </svg>
-                <div className="contact-map-pin"></div>
-                
-                {/* Floating Directions Badge */}
-                <div className="absolute bottom-4 left-4 right-4 z-10 p-3 rounded-xl bg-surface/95 backdrop-blur-md border border-line shadow-lg flex items-center justify-between transition-transform duration-300 group-hover:scale-[1.02]">
-                  <div className="flex items-center gap-2.5 text-xs text-ink">
-                    <Icons.Pin className="w-4 h-4 text-accent" />
-                    <div>
-                      <span className="font-semibold block">Arya Dental Care · SCO 13</span>
-                      <span className="text-[11px] text-ink-soft">Peer Muchalla / Sector 20 Barrier</span>
-                    </div>
-                  </div>
-                  <span className="text-xs font-semibold text-accent flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                    Get Directions →
-                  </span>
-                </div>
+            {/* Real Interactive Google Map Card */}
+            <div className="contact-map-card flex flex-col group relative overflow-hidden">
+              <div className="relative w-full flex-grow min-h-[220px]">
+                <iframe
+                  title="Arya Dental Care Google Maps Location"
+                  src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sArya+Dental+Care,+SCO+13,+Peer+Muchalla,+Zirakpur!6i15"
+                  width="100%"
+                  height="100%"
+                  className="w-full h-full min-h-[220px] border-0"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
-            </a>
+
+              {/* Action Bar for Directions */}
+              <a
+                href="https://maps.google.com/?cid=2124317734797233900"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-surface/95 backdrop-blur-md border-t border-line flex items-center justify-between transition-colors hover:bg-surface-2"
+                title="Open Arya Dental Care in Google Maps"
+              >
+                <div className="flex items-center gap-2.5 text-xs text-ink">
+                  <Icons.Pin className="w-4 h-4 text-accent flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold block">Arya Dental Care · SCO 13</span>
+                    <span className="text-[11px] text-ink-soft">Peer Muchalla / Sector 20 Barrier</span>
+                  </div>
+                </div>
+                <span className="text-xs font-semibold text-accent flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                  Get Directions →
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

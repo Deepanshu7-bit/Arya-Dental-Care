@@ -9,8 +9,8 @@
   --a-ink: #0f1e2c;
   --a-ink-soft: #46586a;
   --a-line: rgba(15, 30, 44, 0.1);
-  --a-accent: #2a6a5e;
-  --a-accent-soft: #dfeae4;
+  --a-accent: #1e3a5f;
+  --a-accent-soft: #dce4ee;
 
   /* Variation B — Warm Modern */
   --b-bg: #f4ede4;
@@ -1424,7 +1424,8 @@ body[data-variant="B"] .orbit-pills { display: block; }
   border: 1px solid var(--line);
   flex-grow: 1;
   display: flex;
-  min-height: 200px;
+  flex-direction: column;
+  min-height: 280px;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

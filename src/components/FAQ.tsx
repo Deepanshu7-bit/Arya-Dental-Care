@@ -50,7 +50,11 @@ export function FAQ() {
               Questions, <span className="italic-serif">answered</span> before you ask.
             </h2>
             <p className="lede" style={{ marginTop: 24 }}>
-              Still curious? Text us at (510) 555-0192 — a real human replies, usually within an hour.
+              Still curious? Call or WhatsApp us at{' '}
+              <a href="tel:+917093295399" className="text-accent font-semibold hover:underline">
+                +91 70932 95399
+              </a>{' '}
+              — a real human replies, usually within an hour.
             </p>
           </div>
           <div className="faq-list" data-stagger>

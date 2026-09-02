@@ -41,6 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
+        data-variant="A"
+        data-palette="A-navy"
+        data-dark="false"
+        data-anim="true"
+        data-font-pairing="editorial"
         className={`${fraunces.variable} ${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}

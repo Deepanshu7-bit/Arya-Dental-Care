@@ -52,8 +52,8 @@ export function Hero({ variant }: HeroProps) {
             </h1>
             <p className="lede hero-lede" data-reveal>
               {variant === 'A'
-                ? 'Evidence-based dentistry in a modern clinic serving Panchkula & Tricity. Guided by Dr. (Col) Parveen Kumar Arya (Ex-Army Dental Corps, 35+ yrs exp) and Dr. Anmol Arya (MDS Orthodontist). Hospital sterilization, transparent pricing, and clinicians who genuinely listen.'
-                : 'Comprehensive family, orthodontic and restorative dentistry from a team you will actually look forward to seeing. Led by Army Dental Corps veteran Dr. (Col) Parveen Kumar Arya and MDS specialists. Zero judgment — ever.'}
+                ? 'Evidence-based dentistry in Panchkula, combining 35+ years of clinical heritage with gentle, patient-first care.'
+                : 'Comprehensive dental care in Panchkula, guided by 35+ years of clinical excellence and gentle specialists.'}
             </p>
             <div className="hero-actions" data-reveal>
               <a href="#contact" className="btn btn-primary">
