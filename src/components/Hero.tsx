@@ -79,7 +79,7 @@ export function Hero({ variant }: HeroProps) {
                 <div className="warm-blob-backdrop" />
 
                 {/* Central Emblem / Clinic Portal */}
-                <div className="relative z-10 w-60 h-60 sm:w-72 sm:h-72 rounded-full p-2.5 bg-surface/85 backdrop-blur-md border-2 border-accent/40 shadow-2xl flex items-center justify-center overflow-hidden group">
+                <div className="hero-portal-emblem relative z-10 w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full p-2 sm:p-2.5 bg-surface/85 backdrop-blur-md border-2 border-accent/40 shadow-2xl flex items-center justify-center overflow-hidden group">
                   <div className="w-full h-full rounded-full overflow-hidden relative">
                     <Image
                       src="/assets/patient-smile.jpg"
@@ -88,47 +88,42 @@ export function Hero({ variant }: HeroProps) {
                       priority
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent flex items-end justify-center pb-4">
-                      {/* <span className="px-3 py-1 rounded-full bg-surface/90 text-[11px] font-semibold text-ink shadow-md backdrop-blur-sm">
-                        Sector 20 · Peer Muchalla
-                      </span> */}
-                    </div>
                   </div>
                 </div>
 
                 {/* Bouncing Orbital Badge 1: Same-Day Crowns (Top Left) */}
-                <div className="bouncing-badge-1 absolute top-0 left-0 sm:left-2 z-20 px-3.5 py-2 rounded-2xl bg-surface/95 backdrop-blur-md border border-line shadow-xl flex items-center gap-2.5 transition-all duration-300 hover:scale-110 hover:border-accent cursor-default">
-                  <span className="text-base">⚡</span>
+                <div className="bouncing-badge-1 orbital-badge top-left z-20">
+                  <span className="badge-emoji">⚡</span>
                   <div>
-                    <div className="text-xs font-bold text-ink">Same-Day Crowns</div>
-                    <div className="text-[10px] text-ink-soft">Digital Ceramic Teeth</div>
+                    <div className="badge-title">Same-Day Crowns</div>
+                    <div className="badge-subtitle">Digital Ceramic</div>
                   </div>
                 </div>
 
                 {/* Bouncing Orbital Badge 2: MDS Orthodontics (Top Right) */}
-                <div className="bouncing-badge-2 absolute top-4 right-0 sm:right-2 z-20 px-3.5 py-2 rounded-2xl bg-surface/95 backdrop-blur-md border border-line shadow-xl flex items-center gap-2.5 transition-all duration-300 hover:scale-110 hover:border-accent cursor-default">
-                  <span className="text-base">💎</span>
+                <div className="bouncing-badge-2 orbital-badge top-right z-20">
+                  <span className="badge-emoji">💎</span>
                   <div>
-                    <div className="text-xs font-bold text-ink">MDS Orthodontist</div>
-                    <div className="text-[10px] text-ink-soft">Braces & Clear Aligners</div>
+                    <div className="badge-title">MDS Orthodontist</div>
+                    <div className="badge-subtitle">Braces & Aligners</div>
                   </div>
                 </div>
 
                 {/* Bouncing Orbital Badge 3: Army-Grade Hygiene (Bottom Left) */}
-                <div className="bouncing-badge-3 absolute bottom-2 left-2 sm:left-4 z-20 px-3.5 py-2 rounded-2xl bg-surface/95 backdrop-blur-md border border-line shadow-xl flex items-center gap-2.5 transition-all duration-300 hover:scale-110 hover:border-accent cursor-default">
-                  <span className="text-base">🛡️</span>
+                <div className="bouncing-badge-3 orbital-badge bottom-left z-20">
+                  <span className="badge-emoji">🛡️</span>
                   <div>
-                    <div className="text-xs font-bold text-ink">Army-Grade Hygiene</div>
-                    <div className="text-[10px] text-ink-soft">Strict B-Class Autoclave</div>
+                    <div className="badge-title">Army-Grade Hygiene</div>
+                    <div className="badge-subtitle">B-Class Autoclave</div>
                   </div>
                 </div>
 
                 {/* Bouncing Orbital Badge 4: Satisfaction Rating (Bottom Right) */}
-                <div className="bouncing-badge-4 absolute bottom-4 right-0 sm:right-4 z-20 px-3.5 py-2 rounded-2xl bg-surface/95 backdrop-blur-md border border-line shadow-xl flex items-center gap-2.5 transition-all duration-300 hover:scale-110 hover:border-accent cursor-default">
-                  <span className="text-base">⭐</span>
+                <div className="bouncing-badge-4 orbital-badge bottom-right z-20">
+                  <span className="badge-emoji">⭐</span>
                   <div>
-                    <div className="text-xs font-bold text-ink">5.0★ on Google</div>
-                    <div className="text-[10px] text-ink-soft">100% 5-Star Reviews</div>
+                    <div className="badge-title">5.0★ on Google</div>
+                    <div className="badge-subtitle">100% 5-Star Reviews</div>
                   </div>
                 </div>
               </div>

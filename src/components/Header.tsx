@@ -18,11 +18,35 @@ export function Header({ variant: _variant }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 15);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Lock body scrolling when mobile menu is open & listen for escape / desktop resize
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth > 820) setMenuOpen(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [menuOpen]);
 
   const navItems: NavItem[] = [
     { label: 'Services', href: '#services', icon: 'Tooth' },
@@ -37,12 +61,12 @@ export function Header({ variant: _variant }: HeaderProps) {
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 header-inner">
           {/* Logo with clean branding */}
-          <a href="#top" className="logo">
+          <a href="#top" className="logo" onClick={() => setMenuOpen(false)}>
             <span className="logo-mark">A</span>
-            <span>Arya Dental Care</span>
+            <span className="logo-text">Arya Dental Care</span>
           </a>
 
-          {/* Unboxed Clean Navigation with Engaging Micro-Icons */}
+          {/* Desktop Navigation */}
           <nav className="nav">
             {navItems.map(({ label, href, icon }) => {
               const IconComp = Icons[icon];
@@ -55,7 +79,7 @@ export function Header({ variant: _variant }: HeaderProps) {
             })}
           </nav>
 
-          {/* Action CTA */}
+          {/* Action CTA & Mobile Buttons */}
           <div className="header-actions">
             <a href="#contact" className="btn btn-primary header-cta">
               Book appointment
@@ -65,42 +89,64 @@ export function Header({ variant: _variant }: HeaderProps) {
             </a>
             <button
               className="menu-btn"
-              aria-label="Menu"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
               onClick={() => setMenuOpen((o) => !o)}
             >
-              {menuOpen ? <Icons.Close className="w-6 h-6" /> : <Icons.Menu className="w-6 h-6" />}
+              {menuOpen ? <Icons.Close className="w-5 h-5" /> : <Icons.Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Navigation with backdrop */}
+      <div
+        className={`mobile-menu-backdrop ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        {navItems.map(({ label, href, icon }) => {
-          const IconComp = Icons[icon];
-          return (
+        <div className="mobile-menu-inner">
+          <div className="mobile-nav-links">
+            {navItems.map(({ label, href, icon }) => {
+              const IconComp = Icons[icon];
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  className="mobile-nav-link"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <div className="mobile-nav-icon-wrap">
+                    <IconComp className="w-5 h-5 text-accent" />
+                  </div>
+                  <span>{label}</span>
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="mobile-menu-actions">
             <a
-              key={label}
-              href={href}
-              className="flex items-center gap-3 text-2xl"
+              href="#contact"
+              className="btn btn-primary w-full justify-center text-sm py-3"
               onClick={() => setMenuOpen(false)}
             >
-              <IconComp className="w-6 h-6 text-accent" />
-              <span>{label}</span>
+              Book appointment
+              <span className="arrow">
+                <Icons.Arrow className="w-4 h-4" />
+              </span>
             </a>
-          );
-        })}
-        <a
-          href="#contact"
-          className="btn btn-primary"
-          style={{ marginTop: 20, alignSelf: 'flex-start' }}
-          onClick={() => setMenuOpen(false)}
-        >
-          Book appointment
-          <span className="arrow">
-            <Icons.Arrow className="w-4 h-4" />
-          </span>
-        </a>
+            <a
+              href="tel:+917093295399"
+              className="btn btn-secondary w-full justify-center text-sm py-3"
+              onClick={() => setMenuOpen(false)}
+            >
+              <Icons.Phone className="w-4 h-4 text-accent" />
+              <span>Call +91 70932 95399</span>
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );
