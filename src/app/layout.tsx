@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Fraunces, Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -49,6 +50,7 @@ export default function RootLayout({
         className={`${fraunces.variable} ${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
