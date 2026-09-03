@@ -28,7 +28,6 @@ lerna-debug.log*
 
 # local env files
 .env*.local
-.env
 
 # vercel
 .vercel
@@ -38,9 +37,12 @@ lerna-debug.log*
 
 # editor directories and files
 .idea
-.vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+config.bat
